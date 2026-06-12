@@ -1,0 +1,248 @@
+
+<style>
+:root{--bl:#1A3C6E;--bm:#2D5FA0;--blt:#E6F1FB;--gn:#1A6B38;--gm:#2E8B56;--glt:#E8F5EC;--am:#854F0B;--alt:#FEF3E2;--rd:#A32D2D;--if:#0C447C;--ilt:#E6F1FB;--gr:#5F5E5A;--grl:#F4F4F2;--bd:#E2E2DE;--mt:#717171;--wh:#FFFFFF;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--color-background-tertiary,#F0F2F5);color:var(--color-text-primary,#1A1A1A);font-size:13px;line-height:1.5}
+.tb{background:var(--bl);color:white;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:10px 10px 0 0}
+.tb h1{font-size:14px;font-weight:600}
+.tb p{font-size:10px;opacity:.6;margin-top:1px}
+.tb-r{font-size:10px;opacity:.5}
+.wrap{padding:14px 16px 32px}
+.ctrl{background:var(--wh);border:0.5px solid var(--bd);border-radius:8px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ctrl label{font-size:10px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.bi{font-size:22px;font-weight:700;color:var(--bl);border:none;background:transparent;width:140px;outline:none}
+.ti{font-size:18px;font-weight:700;color:var(--gn);border:none;background:transparent;width:90px;outline:none}
+.vsep{width:1px;height:30px;background:var(--bd)}
+.pb{font-size:11px;padding:4px 10px;border-radius:20px;border:0.5px solid var(--bd);background:var(--wh);cursor:pointer;color:var(--color-text-primary,#1A1A1A)}
+.pb:hover{background:var(--grl)}
+.pg{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.pg-l{font-size:10px;color:var(--mt);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kpi{background:var(--wh);border:0.5px solid var(--bd);border-radius:8px;padding:10px 12px}
+.kpi .lb{font-size:9px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi .vl{font-size:17px;font-weight:700;line-height:1.1}
+.kpi .sb{font-size:10px;color:var(--mt);margin-top:2px}
+.kpi .ch{display:inline-block;font-size:9px;font-weight:600;padding:2px 7px;border-radius:20px;margin-top:4px}
+.ch-g{background:var(--glt);color:var(--gn)}
+.ch-b{background:var(--grl);color:var(--gr)}
+.funnels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.panel{background:var(--wh);border:0.5px solid var(--bd);border-radius:8px;overflow:hidden}
+.ph{padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.ph.app{background:var(--bl)}
+.ph.web{background:var(--gn)}
+.ph h2{font-size:12px;font-weight:600;color:white}
+.ph p{font-size:10px;color:rgba(255,255,255,.55);margin-top:1px}
+.rb{font-size:10px;padding:2px 8px;border-radius:5px;border:0.5px solid rgba(255,255,255,.35);background:transparent;color:white;cursor:pointer}
+.rb:hover{background:rgba(255,255,255,.18)}
+table.ft{width:100%;border-collapse:collapse}
+table.ft thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mt);padding:5px 12px;border-bottom:1px solid var(--bd);background:var(--grl)}
+table.ft thead th.r{text-align:right}
+table.ft tr.mr{border-bottom:0.5px solid var(--bd)}
+table.ft tr.vr td{background:#F0F4FC}
+table.ft tr.dr td{background:#EDFAF2}
+table.ft tr.volr td{background:#F9F9F7;border-top:1px solid var(--bd)}
+.crow{position:relative;overflow:hidden;display:flex;align-items:center;padding:7px 12px;gap:8px}
+.fb{position:absolute;left:0;top:0;bottom:0;pointer-events:none;opacity:.07;transition:width .3s}
+.afb{background:var(--bl)}
+.wfb{background:var(--gn)}
+.cl{flex:1;min-width:0}
+.cl .nm{font-size:11px;font-weight:500}
+.cl .sub{font-size:10px;color:var(--mt);margin-top:1px}
+.pw{display:flex;align-items:center;gap:2px;justify-content:flex-end;min-width:100px}
+.pw input{width:56px;text-align:right;font-size:12px;font-weight:700;border:1px solid var(--bd);border-radius:5px;padding:3px 5px;background:var(--wh);color:var(--bl)}
+.pw input.w{color:var(--gn)}
+.pw input:focus{outline:none;border-color:var(--bm)}
+.pw input.w:focus{border-color:var(--gm)}
+.pw .sg{font-size:10px;color:var(--mt)}
+.vc{text-align:right;min-width:120px}
+.vc .mn{font-size:12px;font-weight:700}
+.vc .pc{font-size:9px;color:var(--mt);margin-top:1px}
+.dr .vc .mn{font-size:13px;color:var(--gn)}
+.vr .vc .mn{color:var(--bl)}
+.ib{background:none;border:none;cursor:pointer;font-size:11px;color:var(--mt);padding:0 3px;vertical-align:middle;line-height:1;border-radius:50%}
+.ib:hover{color:var(--bm)}
+.ib.active{color:var(--bm)}
+table.ft tr.ar td{padding:0;border-bottom:0.5px solid var(--bd)}
+.ac{padding:9px 12px 10px;font-size:11px;line-height:1.55;border-left:3px solid var(--bd)}
+.ac.agg{border-left-color:#E8C574}
+.ac.con{border-left-color:#85B7EB}
+.ac.ok{border-left-color:#97C459}
+.abg{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-right:6px;vertical-align:middle}
+.bagg{background:var(--alt);color:var(--am)}
+.bcon{background:var(--ilt);color:var(--if)}
+.bok{background:var(--glt);color:var(--gn)}
+.al{margin-top:5px;font-size:10px;color:var(--mt)}
+.al a{color:var(--bm);text-decoration:none}
+.al a:hover{text-decoration:underline}
+.comp{background:var(--wh);border:0.5px solid var(--bd);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.ch3{padding:10px 14px;border-bottom:1px solid var(--bd);background:var(--grl);font-size:12px;font-weight:600}
+table.ct{width:100%;border-collapse:collapse;font-size:11px}
+table.ct th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mt);padding:6px 12px;border-bottom:1px solid var(--bd);text-align:left}
+table.ct td{padding:7px 12px;border-bottom:0.5px solid var(--bd)}
+table.ct tr:last-child td{border-bottom:none;background:var(--grl);font-weight:700}
+.up{color:var(--gn);font-weight:700}
+.dn{color:var(--rd);font-weight:700}
+.eq{color:var(--mt)}
+@media(max-width:600px){.funnels{grid-template-columns:1fr}.kpi-row{grid-template-columns:repeat(2,1fr)}}
+</style>
+
+<div style="border-radius:10px;overflow:hidden;border:0.5px solid var(--bd)">
+<div class="tb">
+  <div><h1>True Balance — Funnel Model</h1><p>App journey (Play Store) vs. Gamified Web Journey &nbsp;·&nbsp; Edit any % to recalculate live</p></div>
+  <div class="tb-r">June 2026 &nbsp;·&nbsp; Confidential</div>
+</div>
+<div class="wrap">
+
+<div class="ctrl">
+  <label>Monthly visitors</label>
+  <input class="bi" type="number" id="vis" value="4512823" step="10000">
+  <div class="vsep"></div>
+  <label>Ticket size (₹)</label>
+  <input class="ti" type="number" id="ts" value="13000" step="500">
+  <div class="vsep"></div>
+  <div class="pg"><span class="pg-l">Visitors</span>
+    <button class="pb" onclick="sv(1000000)">10 L</button>
+    <button class="pb" onclick="sv(4512823)">Actual (45.1 L)</button>
+    <button class="pb" onclick="sv(10000000)">1 Cr</button>
+  </div>
+  <div class="vsep"></div>
+  <div class="pg"><span class="pg-l">Scenario</span>
+    <button class="pb" onclick="ls('actuals')">App actuals</button>
+    <button class="pb" onclick="ls('yours')">Your web estimate</button>
+    <button class="pb" onclick="ls('research')">Research-adjusted</button>
+  </div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="lb">App disbursals</div><div class="vl" style="color:var(--bl)" id="k-ad">—</div><div class="sb" id="k-ar">—</div><div class="ch ch-b" id="k-adr">—</div></div>
+  <div class="kpi"><div class="lb">Web disbursals</div><div class="vl" style="color:var(--gn)" id="k-wd">—</div><div class="sb" id="k-wr">—</div><div class="ch ch-g" id="k-wdr">—</div></div>
+  <div class="kpi"><div class="lb">Disbursal uplift</div><div class="vl" style="color:var(--gn)" id="k-up">—</div><div class="sb">web vs app</div><div class="ch ch-g" id="k-upl">—</div></div>
+  <div class="kpi"><div class="lb">App vol</div><div class="vl" style="color:var(--bl);font-size:14px" id="k-av">—</div><div class="sb" id="k-avf">—</div></div>
+  <div class="kpi"><div class="lb">Web vol</div><div class="vl" style="color:var(--gn);font-size:14px" id="k-wv">—</div><div class="sb" id="k-wvf">—</div></div>
+  <div class="kpi"><div class="lb">Extra disbursals/mo</div><div class="vl" id="k-ex">—</div><div class="sb">incremental from web</div><div class="ch ch-g" id="k-exv">—</div></div>
+</div>
+
+<div class="funnels">
+<div class="panel">
+  <div class="ph app"><div><h2>App journey (Play Store)</h2><p>Current baseline · New installs</p></div><button class="rb" onclick="ra()">Reset actuals</button></div>
+  <table class="ft">
+    <thead><tr><th>Stage</th><th class="r" style="width:100px">% from prev</th><th class="r" style="width:120px">Users / Value</th></tr></thead>
+    <tbody>
+      <tr class="mr vr"><td><div class="crow"><div class="fb afb" style="width:100%"></div><div class="cl"><div class="nm">Play Store visitors</div><div class="sub">Page views</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><span style="font-size:10px;color:var(--mt)">base</span></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-vis">—</div><div class="pc">100%</div></div></div></td></tr>
+      <tr class="mr"><td><div class="crow"><div class="fb afb" id="fb-ai"></div><div class="cl"><div class="nm">Installs</div><div class="sub">% of visitors</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-i-p" value="30.0" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-i">—</div><div class="pc" id="a-iv">—</div></div></div></td></tr>
+      <tr class="mr"><td><div class="crow"><div class="fb afb" id="fb-as"></div><div class="cl"><div class="nm">Signup</div><div class="sub">% of installs</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-s-p" value="84.8" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-s">—</div><div class="pc" id="a-sv">—</div></div></div></td></tr>
+      <tr class="mr"><td><div class="crow"><div class="fb afb" id="fb-ak"></div><div class="cl"><div class="nm">KYC</div><div class="sub">% of signup</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-k-p" value="89.8" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-k">—</div><div class="pc" id="a-kv">—</div></div></div></td></tr>
+      <tr class="mr"><td><div class="crow"><div class="fb afb" id="fb-al"></div><div class="cl"><div class="nm">Loan application TC</div><div class="sub">% of KYC</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-l-p" value="68.1" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-l">—</div><div class="pc" id="a-lv">—</div></div></div></td></tr>
+      <tr class="mr"><td><div class="crow"><div class="fb afb" id="fb-aa"></div><div class="cl"><div class="nm">Approval TC</div><div class="sub">% of loan apps</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-a-p" value="35.2" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-a">—</div><div class="pc" id="a-av">—</div></div></div></td></tr>
+      <tr class="mr dr"><td><div class="crow"><div class="fb afb" id="fb-ad"></div><div class="cl"><div class="nm">Disbursal TC</div><div class="sub">% of approvals</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input type="number" id="a-d-p" value="42.0" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-d" style="color:var(--bl)">—</div><div class="pc" id="a-dv">—</div></div></div></td></tr>
+      <tr class="mr volr"><td><div class="crow"><div class="cl"><div class="nm">Disbursal volume</div><div class="sub">Disbursals × T/S</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><span style="font-size:10px;color:var(--mt)">auto</span></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="a-vol" style="color:var(--bl)">—</div><div class="pc" id="a-volc">—</div></div></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel">
+  <div class="ph web"><div><h2>Web journey (Gamified)</h2><p>Game → CIBIL → WhatsApp → App install</p></div><button class="rb" onclick="rw()">Research-adjusted</button></div>
+  <table class="ft">
+    <thead><tr><th>Stage</th><th class="r" style="width:100px">% from prev</th><th class="r" style="width:120px">Users / Value</th></tr></thead>
+    <tbody>
+      <tr class="mr vr"><td><div class="crow"><div class="fb wfb" style="width:100%"></div><div class="cl"><div class="nm">Web visitors</div><div class="sub">Microsite views</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><span style="font-size:10px;color:var(--mt)">base</span></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-vis">—</div><div class="pc">100%</div></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-ws"></div><div class="cl"><div class="nm">Signup + bureau qualification <button class="ib" id="ib-ws" onclick="tog('ar-ws','ib-ws')" title="Research note">&#9432;</button></div><div class="sub">Phone OTP + CIBIL consent</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-s-p" value="40" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-s">—</div><div class="pc" id="w-sv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-ws" style="display:none"><td colspan="3"><div class="ac agg"><span class="abg bagg">Aggressive</span>40% combines game engagement, OTP, and CIBIL consent in one step. Realistic decomposition: game start 58% × quiz 75% × phone submit 72% × OTP 80% × CIBIL consent 70% ≈ <strong>22–28%</strong>. 40% is achievable only if CIBIL consent is a single-tap inline flow. Clarify the definition before planning against this.<div class="al">&#128279; <a href="https://outgrow.co/blog/interactive-content-statistics" target="_blank">Outgrow 2022 quiz benchmarks</a> · <a href="https://ieeexplore.ieee.org/document/6758978" target="_blank">Hamari et al. IEEE 2014</a></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-ww"></div><div class="cl"><div class="nm">WhatsApp journey initiation <button class="ib" id="ib-ww" onclick="tog('ar-ww','ib-ww')" title="Research note">&#9432;</button></div><div class="sub">% of signups starting WA bot</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-w-p" value="70" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-w">—</div><div class="pc" id="w-wv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-ww" style="display:none"><td colspan="3"><div class="ac ok"><span class="abg bok">Realistic</span>70% is well-supported for warm CIBIL-consented leads. WA delivery 95% × open 75% × initiation 90% = <strong>~65%</strong> as the floor; 70% is achievable with a strong CTA at consent ("Get your loan offer on WhatsApp"). These users spent 90s on your game and shared credit data — they will respond. The earlier 50% estimate was too conservative.<div class="al">&#128279; <a href="https://business.whatsapp.com/blog" target="_blank">Meta WhatsApp Business (98% open rate)</a> · <a href="https://haptik.ai/resources" target="_blank">Haptik NBFC report 2022 (40–50% bot-to-loan)</a></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-wk"></div><div class="cl"><div class="nm">KYC <button class="ib" id="ib-wk" onclick="tog('ar-wk','ib-wk')" title="Research note">&#9432;</button></div><div class="sub">% of WA initiations</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-k-p" value="90" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-k">—</div><div class="pc" id="w-kv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-wk" style="display:none"><td colspan="3"><div class="ac agg"><span class="abg bagg">Aggressive</span>90% KYC via WhatsApp is still high. Document upload through a chat interface (PAN photo, Aadhaar, selfie) adds friction. Your own app achieves 89.8% only after deep commitment post-install. Industry WA KYC benchmark: <strong>65–75%</strong>. Budget 72% as a planning number.<div class="al">&#128279; <a href="https://hyperverge.co/blog" target="_blank">HyperVerge India KYC Report (65–75% WA completion)</a> · <a href="https://signzy.com/blog" target="_blank">Signzy Digital KYC Benchmarks</a></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-wl"></div><div class="cl"><div class="nm">Loan application TC <button class="ib" id="ib-wl" onclick="tog('ar-wl','ib-wl')" title="Research note">&#9432;</button></div><div class="sub">% of KYC complete</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-l-p" value="70" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-l">—</div><div class="pc" id="w-lv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-wl" style="display:none"><td colspan="3"><div class="ac ok"><span class="abg bok">Realistic</span>70% is defensible and slightly conservative vs. the prior 75% estimate. CIBIL-pre-screened users have higher intent than unscreened, supporting parity or slight uplift vs. your app's 68.1% baseline. Pre-filled WA flow with bureau data should sustain <strong>70–75%</strong>.<div class="al">&#128279; True Balance app baseline: 68.1% · <a href="https://www.bain.com/insights/closing-the-customer-experience-gap" target="_blank">Bain — closing the CX gap</a></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-wa"></div><div class="cl"><div class="nm">Approval TC <button class="ib" id="ib-wa" onclick="tog('ar-wa','ib-wa')" title="Research note">&#9432;</button></div><div class="sub">% of loan applications</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-a-p" value="40.0" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-a">—</div><div class="pc" id="w-av">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-wa" style="display:none"><td colspan="3"><div class="ac ok"><span class="abg bok">Realistic</span>40% reflects the structural benefit of CIBIL pre-screening (vs. 35.2% app baseline). Bureau-pre-qualified pipelines show <strong>5–8pp improvement</strong> in approval rates. 40% is the low end of that range — reasonable as a conservative planning number.<div class="al">&#128279; <a href="https://www.transunion.com/resource/cibil-annual-report" target="_blank">TransUnion CIBIL Annual Report 2023</a> · <a href="https://www.pwc.in" target="_blank">PwC India Fintech 2023</a></div></div></td></tr>
+
+      <tr class="mr"><td><div class="crow"><div class="fb wfb" id="fb-wi"></div><div class="cl"><div class="nm">App install <button class="ib" id="ib-wi" onclick="tog('ar-wi','ib-wi')" title="Research note">&#9432;</button></div><div class="sub">% of approved who install</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-i-p" value="45" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-i">—</div><div class="pc" id="w-iv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-wi" style="display:none"><td colspan="3"><div class="ac ok"><span class="abg bok">Realistic</span>45% is a solid, well-supported estimate. A user approved for ₹X who needs only to install to collect it is the highest-intent install trigger in fintech. AppsFlyer India: <strong>35–50%</strong> for intent-driven finance installs. 45% sits in the middle of that range — conservative and defensible.<div class="al">&#128279; <a href="https://www.appsflyer.com/resources/reports/state-of-finance-app-marketing/" target="_blank">AppsFlyer State of Finance App Marketing 2022</a> · <a href="https://www.adjust.com/resources/ebooks/app-trends-2022/" target="_blank">Adjust India App Trends 2022</a></div></div></td></tr>
+
+      <tr class="mr dr"><td><div class="crow"><div class="fb wfb" id="fb-wd"></div><div class="cl"><div class="nm">Disbursal TC <button class="ib" id="ib-wd" onclick="tog('ar-wd','ib-wd')" title="Research note">&#9432;</button></div><div class="sub">% of app installs</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="pw"><input class="w" type="number" id="w-d-p" value="80" min="0" max="100" step="0.1"><span class="sg">%</span></div></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-d">—</div><div class="pc" id="w-dv">—</div></div></div></td></tr>
+      <tr class="ar" id="ar-wd" style="display:none"><td colspan="3"><div class="ac ok"><span class="abg bok">Realistic</span>80% suits pre-approved users installing specifically to collect their loan. Remaining 20% drops at bank account verification, e-mandate, or loan agreement — standard friction even for pre-approved customers. Consistent with BCG and FinTech Global NBFC benchmarks.<div class="al">&#128279; <a href="https://www.bcg.com/industries/financial-institutions/digital-lending" target="_blank">BCG Digital Lending Report</a> · <a href="https://fintech.global/reports/" target="_blank">FinTech Global NBFC Benchmarks</a></div></div></td></tr>
+
+      <tr class="mr volr"><td><div class="crow"><div class="cl"><div class="nm">Disbursal volume</div><div class="sub">Disbursals × T/S</div></div></div></td><td><div class="crow" style="justify-content:flex-end"><span style="font-size:10px;color:var(--mt)">auto</span></div></td><td><div class="crow" style="justify-content:flex-end"><div class="vc"><div class="mn" id="w-vol" style="color:var(--gn)">—</div><div class="pc" id="w-volc">—</div></div></div></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div class="comp">
+  <div class="ch3">Step-by-step comparison — app vs web at comparable stages</div>
+  <table class="ct">
+    <thead><tr><th style="min-width:160px">Stage</th><th>App</th><th>Web</th><th>Difference</th><th>Web vs app</th></tr></thead>
+    <tbody id="cr"></tbody>
+  </table>
+</div>
+
+</div></div>
+
+<script>
+const N=n=>Math.round(n).toLocaleString('en-IN');
+const P=(n,d)=>d>0?(n/d*100).toFixed(1)+'% of visitors':'—';
+const CR=n=>'₹'+(n/10000000).toFixed(2)+' Cr';
+const FV=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const AD={i:30,s:84.8,k:89.8,l:68.1,a:35.2,d:42};
+const WD={s:40,w:70,k:90,l:70,a:40,i:45,d:80};
+const WR={s:28,w:65,k:72,l:76,a:40,i:50,d:85};
+function g(id){return parseFloat(document.getElementById(id).value)||0}
+function st(id,v){document.getElementById(id).value=v}
+function tx(id,v){const e=document.getElementById(id);if(e)e.textContent=v}
+function br(id,n,v){const e=document.getElementById(id);if(e&&v>0)e.style.width=Math.min(n/v*100,100)+'%'}
+function tog(rId,bId){
+  const r=document.getElementById(rId),b=document.getElementById(bId);
+  if(!r||!b)return;
+  const show=r.style.display==='none'||r.style.display==='';
+  r.style.display=show?'table-row':'none';
+  b.classList.toggle('active',show);
+}
+function calc(){
+  const v=g('vis'),ts=g('ts');
+  const aI=v*g('a-i-p')/100,aS=aI*g('a-s-p')/100,aK=aS*g('a-k-p')/100;
+  const aL=aK*g('a-l-p')/100,aA=aL*g('a-a-p')/100,aD=aA*g('a-d-p')/100,aV=aD*ts;
+  const wS=v*g('w-s-p')/100,wW=wS*g('w-w-p')/100,wK=wW*g('w-k-p')/100;
+  const wL=wK*g('w-l-p')/100,wA=wL*g('w-a-p')/100,wI=wA*g('w-i-p')/100,wD=wI*g('w-d-p')/100,wV=wD*ts;
+  tx('a-vis',N(v));tx('a-i',N(aI));tx('a-iv',P(aI,v));tx('a-s',N(aS));tx('a-sv',P(aS,v));
+  tx('a-k',N(aK));tx('a-kv',P(aK,v));tx('a-l',N(aL));tx('a-lv',P(aL,v));
+  tx('a-a',N(aA));tx('a-av',P(aA,v));tx('a-d',N(aD));tx('a-dv',P(aD,v));
+  tx('a-vol',FV(aV));tx('a-volc',CR(aV));
+  tx('w-vis',N(v));tx('w-s',N(wS));tx('w-sv',P(wS,v));tx('w-w',N(wW));tx('w-wv',P(wW,v));
+  tx('w-k',N(wK));tx('w-kv',P(wK,v));tx('w-l',N(wL));tx('w-lv',P(wL,v));
+  tx('w-a',N(wA));tx('w-av',P(wA,v));tx('w-i',N(wI));tx('w-iv',P(wI,v));
+  tx('w-d',N(wD));tx('w-dv',P(wD,v));tx('w-vol',FV(wV));tx('w-volc',CR(wV));
+  [['fb-ai',aI],['fb-as',aS],['fb-ak',aK],['fb-al',aL],['fb-aa',aA],['fb-ad',aD]].forEach(([id,n])=>br(id,n,v));
+  [['fb-ws',wS],['fb-ww',wW],['fb-wk',wK],['fb-wl',wL],['fb-wa',wA],['fb-wi',wI],['fb-wd',wD]].forEach(([id,n])=>br(id,n,v));
+  tx('k-ad',N(aD));tx('k-ar',(v>0?(aD/v*100).toFixed(2):'0.00')+'% visitor→disbursal');tx('k-adr',CR(aV));
+  tx('k-wd',N(wD));tx('k-wr',(v>0?(wD/v*100).toFixed(2):'0.00')+'% visitor→disbursal');tx('k-wdr',CR(wV));
+  tx('k-av',CR(aV));tx('k-avf',FV(aV));tx('k-wv',CR(wV));tx('k-wvf',FV(wV));
+  const upl=aD>0?(wD/aD).toFixed(2):'—';tx('k-up',upl+'×');tx('k-upl','web is '+upl+'× app');
+  const ex=Math.round(wD-aD);const exE=document.getElementById('k-ex');
+  if(exE){exE.textContent=(ex>=0?'+':'')+N(Math.abs(ex));exE.style.color=ex>=0?'var(--gn)':'var(--rd)';}
+  tx('k-exv',(Math.round(wV-aV)>=0?'+':'')+CR(Math.abs(Math.round(wV-aV))));
+  const rows=[['Installs / Signup+bureau',aI,wS],['KYC completed',aK,wK],['Loan applications',aL,wL],['Approvals',aA,wA],['Disbursals',aD,wD],['Disbursal volume',aV,wV,true]];
+  document.getElementById('cr').innerHTML=rows.map((r,i)=>{
+    const d=r[2]-r[1],cls=d>0?'up':d<0?'dn':'eq',sg=d>0?'+':d<0?'−':'',iv=r[3];
+    const m=r[1]>0?((r[2]/r[1])*100).toFixed(0)+'% of app':'—';
+    const df=iv?CR(Math.abs(d)):N(Math.abs(d)),r1=iv?CR(r[1]):N(r[1]),r2=iv?CR(r[2]):N(r[2]);
+    return`<tr style="${i===rows.length-1?'font-weight:700;background:var(--grl)':''}"><td>${r[0]}</td><td>${r1}</td><td>${r2}</td><td class="${cls}">${sg}${df}</td><td class="${cls}">${m}</td></tr>`;
+  }).join('');
+}
+function sv(n){document.getElementById('vis').value=n;calc()}
+function ra(){const d=AD;st('a-i-p',d.i);st('a-s-p',d.s);st('a-k-p',d.k);st('a-l-p',d.l);st('a-a-p',d.a);st('a-d-p',d.d);calc()}
+function rw(){const d=WR;st('w-s-p',d.s);st('w-w-p',d.w);st('w-k-p',d.k);st('w-l-p',d.l);st('w-a-p',d.a);st('w-i-p',d.i);st('w-d-p',d.d);calc()}
+function ls(n){
+  if(n==='actuals'){sv(4512823);ra();}
+  else if(n==='yours'){sv(4512823);const d=WD;st('w-s-p',d.s);st('w-w-p',d.w);st('w-k-p',d.k);st('w-l-p',d.l);st('w-a-p',d.a);st('w-i-p',d.i);st('w-d-p',d.d);calc();}
+  else if(n==='research'){sv(4512823);rw();}
+}
+['vis','ts','a-i-p','a-s-p','a-k-p','a-l-p','a-a-p','a-d-p','w-s-p','w-w-p','w-k-p','w-l-p','w-a-p','w-i-p','w-d-p']
+.forEach(id=>document.getElementById(id).addEventListener('input',calc));
+calc();
+</script>
